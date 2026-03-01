@@ -6,12 +6,13 @@ function Verify() {
   const { token } = useParams();
   const navigate = useNavigate();
   const [status, setStatus] = useState("Verifying your email...");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const verifyEmail = async () => {
       try {
         const res = await axios.post(
-          "https://note-app-backend-project.onrender.com/user/verify",
+          `${API_URL}/user/verify`,
           {},
           {
             headers: {

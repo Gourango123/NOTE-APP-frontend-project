@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -30,7 +31,7 @@ function RegisterPage() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        "https://note-app-backend-project.onrender.com/user/register",
+        `${API_URL}/user/register`,
         formData,
         {
           headers: {

@@ -13,6 +13,7 @@ const Navbar = () => {
   // Logout handler
   const handleLogout = async () => {
     const accessToken = localStorage.getItem("accessToken");
+    const API_URL = import.meta.env.VITE_API_URL;
 
     if (!accessToken) {
       toast.error("You are not logged in");
@@ -23,7 +24,7 @@ const Navbar = () => {
 
     try {
       const res = await axios.post(
-        "https://note-app-backend-project.onrender.com/user/logout",
+        `${API_URL}/user/logout`,
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },

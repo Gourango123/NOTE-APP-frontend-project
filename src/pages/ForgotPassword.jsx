@@ -10,8 +10,10 @@ function ForgotPassword() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const navigate = useNavigate();
+  
 
   const handleForgetPassword = async (e) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     e.preventDefault();
 
     if (!email) return setError("Email is required");
@@ -19,7 +21,7 @@ function ForgotPassword() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        "https://note-app-backend-project.onrender.com/user/forgot-password",
+        `${API_URL}/user/forgot-password`,
         { email }
       );
 

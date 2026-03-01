@@ -9,6 +9,7 @@ function VerifyOtp() {
   const [successMessage, setSuccessMessage] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [isLoading, setIsLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const inputRefs = useRef([]);
   const { email } = useParams();
@@ -47,7 +48,7 @@ function VerifyOtp() {
       setIsLoading(true);
 
       const res = await axios.post(
-        `https://note-app-backend-project.onrender.com/user/verify-otp/${email}`,
+        `${API_URL}/user/verify-otp/${email}`,
         { otp: finalOtp },
       );
 

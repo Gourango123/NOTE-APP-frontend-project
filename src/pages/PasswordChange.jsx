@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 function PasswordChange() {
   const { email } = useParams();
   const navigate = useNavigate();
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +28,7 @@ function PasswordChange() {
 
       // Backend expects both newPassword and confirmPassword
       const res = await axios.post(
-        `https://note-app-backend-project.onrender.com/user/password-change/${email}`,
+        `${API_URL}/user/password-change/${email}`,
         { newPassword, confirmPassword }
       );
 

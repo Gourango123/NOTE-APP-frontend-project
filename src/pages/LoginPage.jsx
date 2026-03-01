@@ -8,6 +8,7 @@ import { useUser } from "../context/userContext";
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const { setUser } = useUser();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -31,7 +32,7 @@ function LoginPage() {
 
     try {
       const res = await axios.post(
-        "https://note-app-backend-project.onrender.com/user/login",
+        `${API_URL}/user/login`,
         formData,
       );
 
