@@ -30,7 +30,7 @@ function RegisterPage() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/user/register",
+        "https://note-app-backend-project.onrender.com/user/register",
         formData,
         {
           headers: {

@@ -19,7 +19,7 @@ function ForgotPassword() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/user/forgot-password",
+        "https://note-app-backend-project.onrender.com/user/forgot-password",
         { email }
       );
 

@@ -47,7 +47,7 @@ function VerifyOtp() {
       setIsLoading(true);
 
       const res = await axios.post(
-        `http://localhost:5000/user/verify-otp/${email}`,
+        `https://note-app-backend-project.onrender.com/user/verify-otp/${email}`,
         { otp: finalOtp },
       );
 

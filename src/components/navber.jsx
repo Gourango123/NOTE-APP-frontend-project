@@ -23,7 +23,7 @@ const Navbar = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/user/logout",
+        "https://note-app-backend-project.onrender.com/user/logout",
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },

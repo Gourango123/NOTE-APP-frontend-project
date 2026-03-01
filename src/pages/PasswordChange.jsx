@@ -28,7 +28,7 @@ function PasswordChange() {
 
       // Backend expects both newPassword and confirmPassword
       const res = await axios.post(
-        `http://localhost:5000/user/password-change/${email}`,
+        `https://note-app-backend-project.onrender.com/user/password-change/${email}`,
         { newPassword, confirmPassword }
       );
 
