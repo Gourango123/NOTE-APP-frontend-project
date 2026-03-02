@@ -40,12 +40,12 @@ function RegisterPage() {
         },
       );
       if (res.data.success) {
-        toast.success("Account created successfully 🎉");
+        toast.success("Account created successfully");
         navigate("/verify-Email");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Registration failed ❌");
+      toast.error("Registration failed");
     } finally {
       setIsLoading(false);
     }
