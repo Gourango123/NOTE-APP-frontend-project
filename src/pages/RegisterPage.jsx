@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
 import axios from "axios";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -30,22 +30,15 @@ function RegisterPage() {
     e.preventDefault();
     try {
       setIsLoading(true);
-      const res = await axios.post(
-        `${API_URL}/user/register`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
-      );
+
+      const res = await axios.post(`${API_URL}/user/register`, formData);
+
       if (res.data.success) {
-        toast.success("Account created successfully");
-        navigate("/verify-Email");
+        toast.success(res.data.message || "Account created successfully");
+        navigate("/verify-email");
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Registration failed");
+      toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setIsLoading(false);
     }
